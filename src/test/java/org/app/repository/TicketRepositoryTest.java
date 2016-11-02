@@ -36,7 +36,6 @@ public class TicketRepositoryTest extends TestBase {
 	private List<Integer> shuffledIds;
 	private List<Integer> selectedIds;
 	private List<String> names;
-	//	private List<Optional<Ticket>> tickets;
 
 	@Before
 	public void setup() {

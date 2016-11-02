@@ -3,6 +3,7 @@ package org.app.model;
 import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 public class Ticket {
@@ -17,7 +18,7 @@ public class Ticket {
 	}
 
 	// TODO: use builder pattern
-	public Ticket(@NotNull Integer id, String name) {
+	public Ticket(@NotNull Integer id, @NotEmpty String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -26,7 +27,7 @@ public class Ticket {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(@NotNull Integer id) {
 		this.id = id;
 	}
 
@@ -34,7 +35,7 @@ public class Ticket {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(@NotEmpty String name) {
 		this.name = name;
 	}
 
