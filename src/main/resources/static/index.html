@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	<style type="text/css">
+		.panel-heading h4 {
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    line-height: normal;
+		    width: 75%;
+		    padding-top: 8px;
+		}
+		.list-group {
+			max-width: 400px;
+		}
+	</style>
+</head>
+<body ng-app="Lottery">
+	<div class="container" ng-controller="LotteryCtrl">
+		<div class="page-header">
+			<h1>Lottery Application</h1>
+		</div>
+		<div class="alert alert-info" role="alert"
+			ng-hide="tickets &amp;&amp; tickets.length > 0">There are no purchased tickets yet.
+		</div>
+		<hr/>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Tickets</h4>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" role="form" ng-submit="buyTicket(buyerName)">
+					<div class="input-group">
+						<input type="text" class="form-control" ng-model="buyerName"
+							placeholder="Enter first name ..." /> <span
+							class="input-group-btn">
+							<button class="btn btn-sm btn-success pull-right" type="submit" ng-disabled="!buyerName" title="Purchase ticket">
+								Buy Ticket
+							</button>
+						</span>
+					</div>
+				</form>
+				<table st-table="tickets" class="table table-striped">
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Ticket ID</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="ticket in tickets">
+							<td>{{ticket.firstName}}</td>
+							<td>{{ticket.ticketId}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<hr/>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title pull-left">Selected ball numbers</h4>
+				<button class="btn btn-sm btn-success pull-right" ng-click="startDraw()" title="Start Draw">
+					Start
+				</button>
+				<div class="clearfix"></div>
+			</div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<span class="badge">{{selectedBalls[0]}}</span>
+						1st ball
+					</li>
+					<li class="list-group-item">
+						<span class="badge">{{selectedBalls[1]}}</span>
+						2nd ball
+					</li>
+					<li class="list-group-item">
+						<span class="badge">{{selectedBalls[2]}}</span>
+						3rd ball
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title pull-left">Lottery winners</h4>
+				<button class="btn btn-sm btn-success pull-right" ng-click="loadWinners()" title="Load Winners">
+					Load
+				</button>
+				<div class="clearfix"></div>
+			</div>
+			<div class="panel-body">
+				<table st-table="winners" class="table table-striped">
+					<thead>
+						<tr>
+							<th>Selection</th>
+							<th>Ball Number</th>
+							<th>Winner Name</th>
+							<th>Prize</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="winner in winners">
+							<td>{{$index + 1}}</td>
+							<td>{{winner.id}}</td>
+							<td>{{winner.name}}</td>
+							<td>{{winner.prize | currency}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-resource/angular-resource.min.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+	<script type="text/javascript" src="./app/app.js"></script>
+</body>
+</html>
