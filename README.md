@@ -32,7 +32,6 @@ bower install
 Use Maven to run unit tests and/or to package the application:
 ```
 mvn test
-```
 mvn clean package
 ```
 
@@ -40,5 +39,8 @@ Run application from the command line:
 ```
 java -jar target/lottery-1.0.0.jar
 ```
-Open http://localhost:8080 in your prowser to start using the UI.
+
+Open the following URL in your browser to start using the UI:
+```
+http://localhost:8080
 ```
