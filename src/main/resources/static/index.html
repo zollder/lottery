@@ -27,11 +27,15 @@
 		<hr/>
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h4 class="panel-title">Tickets</h4>
+				<h4 class="panel-title pull-left">Tickets</h4>
+				<button class="btn btn-sm btn-success pull-right" ng-click="loadTickets()" title="Reload tickets">
+					Refresh
+				</button>
+				<div class="clearfix"></div>
 			</div>
 			<div class="panel-body">
 				<form class="form-horizontal" role="form" ng-submit="buyTicket(buyerName)">
-					<div class="input-group">
+					<div class="input-group input-group-sm">
 						<input type="text" class="form-control" ng-model="buyerName"
 							placeholder="Enter first name ..." /> <span
 							class="input-group-btn">
@@ -62,7 +66,7 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4 class="panel-title pull-left">Selected ball numbers</h4>
-				<button class="btn btn-sm btn-success pull-right" ng-click="startDraw()" title="Start Draw">
+				<button class="btn btn-sm btn-success pull-right" ng-click="startDraw()" title="Start draw">
 					Start
 				</button>
 				<div class="clearfix"></div>
@@ -88,7 +92,7 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4 class="panel-title pull-left">Lottery winners</h4>
-				<button class="btn btn-sm btn-success pull-right" ng-click="loadWinners()" title="Load Winners">
+				<button class="btn btn-sm btn-success pull-right" ng-click="loadWinners()" title="Load winners">
 					Load
 				</button>
 				<div class="clearfix"></div>
